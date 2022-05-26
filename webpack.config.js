@@ -28,6 +28,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.js', '.json', '.tsx'],
+    aliasFields: ['browser'],
+    alias: {
+      '~/theme': path.resolve(__dirname, './src/theme/'),
+    },
   },
   devServer: {
     port: 3000,

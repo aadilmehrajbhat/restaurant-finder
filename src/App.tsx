@@ -1,5 +1,19 @@
 import { hot } from 'react-hot-loader';
+import styled from 'styled-components';
 
-const App = () => <h1>Restaurant App</h1>;
+import { ThemeProvider } from '~/theme';
+
+const App = () => (
+  <ThemeProvider>
+    <S.Heading>Restaurants</S.Heading>
+  </ThemeProvider>
+);
+
+const S = {
+  Heading: styled.h1`
+    font-weight: bold;
+    color: ${({ theme }) => theme.colors.bodyText};
+  `,
+};
 
 export default hot(module)(App);
