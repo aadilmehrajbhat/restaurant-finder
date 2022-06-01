@@ -1,19 +1,19 @@
 import { hot } from 'react-hot-loader';
-import styled from 'styled-components';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { ThemeProvider } from '~/theme';
+import RestaurantListing from '~/components/restaurant-listing';
+import RestaurantDetail from '~/components/restaurant-detail';
 
 const App = () => (
-  <ThemeProvider>
-    <S.Heading>Restaurants</S.Heading>
-  </ThemeProvider>
+  <BrowserRouter>
+    <ThemeProvider>
+      <Routes>
+        <Route path="/" element={<RestaurantListing />} />
+        <Route path="r/:id" element={<RestaurantDetail />} />
+      </Routes>
+    </ThemeProvider>
+  </BrowserRouter>
 );
-
-const S = {
-  Heading: styled.h1`
-    font-weight: bold;
-    color: ${({ theme }) => theme.colors.bodyText};
-  `,
-};
 
 export default hot(module)(App);
