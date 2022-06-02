@@ -55,18 +55,16 @@ const StarRating: FC<StarRatingProps> = ({
         {Array(total)
           .fill(0)
           .map((_, i) => i + 1)
-          .map((rating) => (
+          .map((r) => (
             <S.Star
-              key={rating}
+              key={r}
               viewBox="0 0 20 20"
               size={size}
-              active={rating >= rating}
+              active={r <= Math.round(rating)}
             >
               <use
                 xlinkHref="#rating-star-symbol"
-                mask={
-                  rating > rating && rating < rating + 0.5 ? 'url(#half)' : ''
-                }
+                mask={rating > r && rating < r + 0.5 ? 'url(#half)' : ''}
               ></use>
               <use
                 xlinkHref="#rating-star-symbol"
